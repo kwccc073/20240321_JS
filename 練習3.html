@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習3</title>
+</head>
+
+<body>
+    <script>
+        /*假設某一公司有五種產品 A、B、C、D、E
+        其單價分別為 12、16、10、14、15 元
+        而該公司共有三位銷售員，他們在某個月份的銷售量如下所示
+        請將上表的內容設定成二維陣列，變數數量和陣列格式不限，並依序完成下列各題
+        每一個銷售員的銷售總金額
+        每一項產品的銷售總金額
+        */
+        let SalesVolume = [
+            [33, 32, 56, 45, 33],
+            [77, 33, 68, 45, 23],
+            [43, 55, 43, 67, 65],
+        ]
+        let SalePrice = [12, 16, 10, 14, 15]
+
+        // 題目：每一個銷售員的銷售總金額
+        // 設定銷售員1 - 3都跑一遍
+        // for (let i = 0; i < SalesVolume.length; i++) {
+        //     let sales = i
+        //     let SalesAmount = 0
+        //     // 使產品A-E都跑一遍
+        //     for (let i = 0; i < SalesVolume[0].length; i++) {
+        //         // sum=sum+產品銷售量*金額
+        //         SalesAmount = SalesAmount + (SalesVolume[sales][i] * SalePrice[i])
+        //     }
+        //     document.write(`銷售員${i + 1}的銷售總金額為${SalesAmount}<br>`)
+        // }
+        // document.write('<hr>')
+
+        // 題目：每一個銷售員的銷售總金額
+        // 設定銷售員1 - 3都跑一遍
+        for (let i = 0; i < SalesVolume.length; i++) {
+            let SalesAmount = 0
+            // 使產品A-E都跑一遍
+            for (let j = 0; j < SalesVolume[i].length; j++) {
+                // sum=sum+產品銷售量*金額
+                SalesAmount = SalesAmount + (SalesVolume[i][j] * SalePrice[j])
+            }
+            document.write(`銷售員${i + 1}的銷售總金額為${SalesAmount}<br>`)
+        }
+        document.write('<hr>')
+
+        // 題目：每一項產品的銷售總金額
+        // 產品A-E跑一遍
+        let product_SalesAmount = 0
+        // 使產品A-E都跑一遍
+        for (let i = 0; i < SalesVolume[0].length; i++) {
+            // 使銷售員1-3都跑一遍
+            let product = i
+            let product_SalesAmount = 0
+            for (let i = 0; i < SalesVolume.length; i++) {
+                // product_SalesAmount = product_SalesAmount+產品銷售量*金額
+                product_SalesAmount = product_SalesAmount + (SalesVolume[i][product] * SalePrice[product])
+            }
+            document.write(`產品${i + 1}的銷售總金額為${product_SalesAmount}<br>`)
+        }
+
+
+    </script>
+</body>
+
+</html>

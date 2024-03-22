@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>改值</title>
+</head>
+
+<body>
+    <script>
+        // 改變陣列([])裡的值
+        const arr = [1, 2, 3]
+        arr[0] = 111
+        console.log(arr)
+        // 改變物件({})裡的值
+        const obj = { a: 1, b: 2, c: 3 }
+        obj.a = 111
+        console.log(obj)
+
+        // Pass by reference 傳址
+        // const宣告通常不能改，但若宣告的是陣列或物件則可以改裡面的值，但不能整個改掉
+        //只有陣列或物件才會有下列情況：改a的時候b會一起改到
+        const a = [1, 2, 3]
+        const b = a //b為陣列
+        b[0] = 100
+        console.log(a) // [100,2,3]
+        console.log(b) // [100,2,3]
+        console.log(a === b) //true（表示他們是同一個）
+
+        const obj1 = { a: 1, b: 2, c: 3 }
+        const obj2 = obj1
+        obj1.a = 100
+        console.log(obj1)//{ a: 1, b: 2, c: 3 }
+        console.log(obj2)//{ a: 1, b: 2, c: 3 }
+
+
+        // Pass by value 傳值
+        let test1 = 1
+        let test2 = test1
+        test2 = 100
+        console.log(test1) //1
+        console.log(test2) //100
+
+        /* 陣列、物件指定位置的話是看資料型態
+        陣列、物件是reference，其他是value*/
+        const c = [4, 5, 6]
+        let d = c[0] //此時d=4，不是物件也不是陣列
+        d = 100 //所以可以只改d
+        console.log(c) //[4,5,6]
+        console.log(d) //100
+        const obj3 = { a: 1, b: 2, c: 3 }
+        const obj4 = { a: obj3.a, b: obj3.b, c: obj3.c }
+        obj4.a = 100
+        console.log(obj3) //{ a: 1, b: 2, c: 3 }
+        console.log(obj4)//{ a: 100, b: 2, c: 3 }
+
+
+        // 下面是解構陣列&物件
+        // 解構是pass by value （不會改到原本array裡面的值）
+        // 解構是看資料型態，陣列、物件是reference，其他是value
+        const array = [1, 2, 3, 4]
+        let [one, two, ...others] = array
+        one = 100
+        console.log('one', one)//100
+        console.log('array', array)//[1, 2, 3, 4]
+
+        const objj = { aaa: 1, bbb: 2, ccc: 3, ddd: 4 }
+        let { aaa, bbb, ...banana } = objj
+        aaa = 100
+        console.log(aaa) //100
+        console.log(objj) //{ aaa: 1, bbb: 2, ccc: 3, ddd: 4 }
+    </script>
+</body>
+
+</html>

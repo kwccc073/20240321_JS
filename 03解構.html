@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH6解構</title>
+</head>
+
+<body>
+    <script>
+        // 陣列的解構
+        const array = [1, 2, 3, 4]
+        // const one= array[0]
+        // const two= array[1]
+        // ...表示剩下的分配給others，...須放在最後面
+        // 陣列解構時的one, two, ...others都可以自己命名
+        let [one, two, ...others] = array
+        console.log(one) //1
+        console.log(two) //2
+        console.log(others) //[3,4]
+
+        // 解構是pass by value （不會改到原本array裡面的值）
+        // 解構是看資料型態，陣列物件是reference，其他是value
+        one = 100
+        console.log('one', one)//100
+        console.log('array', array)//[1, 2, 3, 4]
+
+        //物件{}的解構
+        const obj = { a: 1, b: 2, c: 3, d: 4 }
+        // const a = obj.a
+        // const bbb = obj.b
+        /* 物件解構必須取跟key相同的名，或是用 : 重新命名
+        只有...可以自己命名*/
+        //下面這行是需要重新命名的情況：有一變數叫b、物件裡也有一個key叫b
+        const b = 123456
+        let { a, b: bbb, ...banana } = obj
+        console.log(a) //1
+        console.log(bbb) //取出2，並將 key (原本是b)重新命名為bbb
+        console.log(banana) //{c:3, d:4}
+
+        a = 100
+        console.log(a) //100
+        console.log(obj) //{ a: 1, b: 2, c: 3, d: 4 }
+    </script>
+</body>
+
+</html>

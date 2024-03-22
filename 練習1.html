@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習1－數列</title>
+</head>
+
+<body>
+    <script>
+        /*宣告一個數字陣列
+        印出陣列 第 x 個數字為 y*/
+        let numbers = [33, 75, 69, 41, 50, 19]
+        for (const i in numbers) {
+            // 也可以改用i*1+1來取代parseInt(i + 1)，因為*1是乘以數字，使字元變數字
+            document.write(`第${parseInt(i + 1)}個數字是${numbers[i]}<br>`)
+        }
+
+        // 題目：求 41 是第幾個數字
+        // 使陣列裡所有的值都跑過
+        for (let i = 0; i < numbers.length; i++) {
+            if (numbers[i] === 41) {
+                document.write(`41 是第${i + 1}個數字<br>`)
+                break //找到就可以停止
+            }
+        }
+        // 另一種寫法（當41不在陣列裡的作法）
+        // 假設41這個值的索引是-1，代表他不在陣列裡面
+        let index41 = -1
+        for (const i in numbers) {
+            if (numbers[i] === 41) {
+                index41 = i * 1 + 1
+                break
+            }
+        }
+        // 若index41 === -1為true，寫下找不到；若false則進行`41是第${index41}個字<br>`
+        document.write(index41 === -1 ? '找不到<br>' : `41是第${index41}個字<br>`)
+
+
+        //題目：有幾個奇數和幾個偶數
+        let a = 0 //用於計算奇數總數
+        let b = 0 //用於計算偶數總數
+        // 使陣列裡所有的值都跑過
+        for (let i = 0; i < numbers.length; i++) {
+            if (numbers[i] % 2 == 1) {
+                a += 1
+            } else { b += 1 }
+        }
+        document.write(`奇數有${a}個，偶數有${b}個<br>`)
+        // for in寫法
+        let odd = 0
+        let even = 0
+        for (const i in numbers) {
+            if (numbers[i] % 2 === 1) {
+                odd += 1
+            } else {
+                even += 1
+            }
+        } document.write(`奇數${odd}個，偶數${even}個<br>`)
+
+        // 最大數字和最小數字
+        let maximum = numbers[0]
+        let minimum = numbers[0] //初始值是0會無法進行，故改成以第一個數字進行
+        for (let i = 0; i < numbers.length; i++) {
+            if (numbers[i] > maximum) {
+                maximum = numbers[i]
+            } else if (numbers[i] < minimum) {
+                minimum = numbers[i]
+            }
+        }
+        document.write(`最大數字為${maximum}，最小數字為${minimum}`)
+
+    </script>
+</body>
+
+</html>

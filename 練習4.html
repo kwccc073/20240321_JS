@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習4</title>
+</head>
+
+<body>
+
+    <!-- <table border="1">
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </table> -->
+    <script>
+        /*練習二維陣列
+        下表為某地星期一到星期四的時段一、時段二與時段三的氣溫
+        請將上表的內容設定成二維陣列，變數數量和陣列格式不限，並依序完成下列各題
+        
+        每日的平均溫度
+        時段一、時段二、時段三的平均氣溫
+        溫度最高的日子與時段
+        溫度最低的日子與時段*/
+
+        // 時段[星期]
+        let temperature = [
+            [18.2, 17.3, 15.0, 13.4],
+            [23.8, 25.1, 20.6, 17.8],
+            [20.6, 21.5, 18.4, 15.7]
+        ]
+        // 將陣列內容印出成表格
+        document.write('<table border="1">')
+        // 時段一～三跑一遍
+        for (let i = 0; i < temperature.length; i++) {
+            document.write('<tr>')
+            // 星期一～四跑一遍
+            for (let j = 0; j < temperature[0].length; j++) {
+                document.write('<td>')
+                document.write(temperature[i][j])
+                document.write('</td>')
+            }
+            document.write('</tr>')
+        }
+        document.write('</table>')
+
+        // 題目：每日的平均溫度
+        // 星期一～四跑一遍
+        for (let i = 0; i < temperature[0].length; i++) {
+            let average = 0
+            // 時段一～三跑一遍
+            for (let j = 0; j < temperature.length; j++) {
+                average = average + temperature[j][i]
+            }
+            average = average / temperature.length
+            document.write(`星期${i + 1}的平均溫度為${average}<br>`)
+        }
+        document.write('<hr>')
+
+        // 題目：時段一、時段二、時段三的平均氣溫
+        // 時段一～三跑一遍
+        for (let i = 0; i < temperature.length; i++) {
+            let average = 0
+            // 星期一～四跑一遍
+            for (let j = 0; j < temperature[i].length; j++) {
+                average = average + temperature[i][j]
+            }
+            average = average / temperature[i].length
+            document.write(`時段${i + 1}的平均溫度為${average}<br>`)
+        }
+        document.write('<hr>')
+        /*題目：溫度最高的日子與時段
+        溫度最低的日子與時段*/
+        // 時段一～三跑一遍
+        let max = temperature[0][0]
+        let mini = temperature[0][0]
+        let maxweek = 0
+        let maxperiod = 0
+        let miniweek = 0
+        let miniperiod = 0
+        for (let i = 0; i < temperature.length; i++) {
+            // 星期一～四跑一遍
+            for (let j = 0; j < temperature[0].length; j++) {
+                if (temperature[i][j] > max) {
+                    max = temperature[i][j]
+                    maxweek = j + 1
+                    maxperiod = i + 1
+                } else if (temperature[i][j] < mini) {
+                    mini = temperature[i][j]
+                    miniweek = j + 1
+                    miniperiod = i + 1
+                }
+            }
+        }
+        document.write(`溫度最高：星期${maxweek}的時段${maxperiod}，溫度為${max}<br>`)
+        document.write(`溫度最低：星期${miniweek}的時段${miniperiod}，溫度為${mini}<br>`)
+
+    </script>
+</body>
+
+</html>

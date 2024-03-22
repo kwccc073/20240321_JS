@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>物件{}</title>
+</head>
+
+<body>
+    <h1>物件 {}</h1>
+    <p>是一個東西裡的不同資料</p>
+    寫法：
+    變數={
+    key: 值,
+    key: 值,
+    }
+    <hr>
+    <script>
+        const wdaf2e = {
+            classroom: '1114',
+            name: '前端技術',
+            students: 18,
+            year: 113,
+            semester: 1
+        }
+
+        // 選物件中資料的方法
+        document.write(wdaf2e.name + '<br>') //寫法一：. （最常用）
+        document.write(wdaf2e['classroom'] + '<br>')//寫法2 []
+        const key = 'year' //寫法三：先設定一變數，再用[]
+        document.write(wdaf2e[key] + '<br>')
+
+        /* 物件不能用.length取有幾個資料
+        因為.length會變成在物件裡尋找名叫length的資料*/
+        document.write(wdaf2e.length + '<br>')
+
+        // Object.keys 用於把物件內的 key 取出成陣列（只有key)
+        console.log(Object.keys(wdaf2e))
+        // Object.values把物件內的值取出成陣列
+        console.log(Object.values(wdaf2e))
+
+        const keys = Object.keys(wdaf2e)
+        for (let i = 0; i < keys.length; i++) {
+            document.write(`${keys[i]}-${wdaf2e[keys[i]]}<br>`)
+        }
+    </script>
+</body>
+
+</html>

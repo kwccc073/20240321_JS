@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>可選</title>
+</head>
+
+<body>
+    <script>
+        const user = {
+            name: `AAA`,
+            info: {
+                email: 'aaa@gmail.com'
+            }
+        }
+        console.log(user.name) //aaa
+        console.log(user.info.email) //aaa@gmail.com
+        console.log(user.info.address) //undifined
+        /*console.log(user.info.address.city)
+        出現錯誤 Uncaught TypeError: Cannot read properties of undefined (reading 'city')
+        ?.使如果找不到的話就顯示undifined而不會出現錯誤*/
+        console.log(user.info.address?.city)//undifined
+        console.log(user.info.address?.city.postcode)//undifined
+
+        const products = [
+            { name: 'iphone 15', price: 48900 },
+            {
+                name: 'Nothing Phone(2)',
+                price: 21900,
+                producer: {
+                    name: 'Nothing',
+                    url: 'https://tw.nothing.tech/'
+                }
+            },
+            {
+                name: 'Nothing Phone(1)',
+                price: 14900,
+                producer: {
+                    name: 'Nothing',
+                    url: 'https://tw.nothing.tech/'
+                }
+            },
+        ]
+        // ||回傳最先是true的值*********待補筆記
+        for (let i = 0; i < products.length; i++) {
+            document.write(`
+            <p>
+                ${products[i].name}，價格為${products[i].price}
+                製造商為
+                <a href="${products[i].producer?.url || '#'}">${products[i].producer?.name || "不明"}</a>
+                </p>`)
+        }
+    </script>
+</body>
+
+</html>

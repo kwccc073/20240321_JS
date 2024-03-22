@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習2</title>
+</head>
+
+<body>
+    <script>
+        /*練習
+        某國家發生通貨膨脹
+        饅頭第一天 1 元，第二天 2 元，第三天 3 元，以此類推
+        小明他從第一天起，連續買了 10 天的饅頭
+        每天買的饅頭數依序為 1, 8, 3, 4, 5, 6, 7, 2, 9, 10
+        求小明買饅頭花費的總金額*/
+        let dollars = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        let quantity = [1, 8, 3, 4, 5, 6, 7, 2, 9, 10]
+        let sum = 0
+
+        for (let i = 0; i < dollars.length; i++) {
+            sum = sum + dollars[i] * quantity[i]
+        }
+        document.write(`小明買饅頭花費的總金額為${sum}<br>`)
+
+        //for of或for in寫法
+        // let sum2 = 0
+        // for (let d of dollars) {
+        //     for (let q of quantity) {
+        //         sum2 = sum2 + d * q
+        //     }
+        // }
+        // document.write(`${sum2}<br>`)
+
+        // //for in寫法
+        // let sum3 = 0
+        // for (let d in dollars) {
+        //     for (let q in quantity) {
+        //         sum3 = sum2 + d * q
+        //     }
+        // }
+    </script>
+</body>
+
+</html>
