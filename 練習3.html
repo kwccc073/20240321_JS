@@ -48,6 +48,19 @@
             }
             document.write(`銷售員${i + 1}的銷售總金額為${SalesAmount}<br>`)
         }
+
+        // for in 寫法
+        document.write('<h6>for in 寫法</h6>')
+        // 設定銷售員1 - 3都跑一遍
+        for (let i in SalesVolume) {
+            let SalesAmount = 0
+            // 使產品A-E都跑一遍
+            for (let j in SalesVolume[i]) {
+                // sum=sum+產品銷售量*金額
+                SalesAmount = SalesAmount + (SalesVolume[i][j] * SalePrice[j])
+            }
+            document.write(`銷售員${i + 1}的銷售總金額為${SalesAmount}<br>`)
+        }
         document.write('<hr>')
 
         // 題目：每一項產品的銷售總金額
