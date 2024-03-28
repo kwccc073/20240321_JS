@@ -78,7 +78,23 @@
             document.write(`產品${i + 1}的銷售總金額為${product_SalesAmount}<br>`)
         }
 
+        document.write(`<hr>`)
 
+        document.write("teacher解法<br>")
+        const totalSales = [0, 0, 0]
+        const totalProducts = [0, 0, 0, 0, 0]
+        // i表示銷售員
+        for (let i = 0; i < SalesVolume.length; i++) {
+            //j表示產品
+            for (let j = 0; j < SalesVolume[i].length; j++) {
+                const total = SalesVolume[i][j] * SalePrice[j]
+                totalProducts[j] += total
+                totalSales[i] += total
+            }
+        }
+        document.write(totalSales)
+        document.write('<br>')
+        document.write(totalProducts)
     </script>
 </body>
 
