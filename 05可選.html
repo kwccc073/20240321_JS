@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>可選</title>
+    <title>可選串連</title>
 </head>
 
 <body>
@@ -18,11 +18,12 @@
         console.log(user.name) //aaa
         console.log(user.info.email) //aaa@gmail.com
         console.log(user.info.address) //undifined
-        /*console.log(user.info.address.city)
-        出現錯誤 Uncaught TypeError: Cannot read properties of undefined (reading 'city')
-        ?.使如果找不到的話就顯示undifined而不會出現錯誤*/
-        console.log(user.info.address?.city)//undifined
-        console.log(user.info.address?.city.postcode)//undifined
+        /*console.log(user.info.address.city) => 這樣是對undifined去找city這個參數\參數\
+        會出現錯誤 Uncaught TypeError: Cannot read properties of undefined (reading 'city') */
+        /* ?. => 找的到就用找到的值，但如果找不到的話就直接顯示undifined而不會出現錯誤
+        ?.通常用在不確定有沒有這筆資料時*/
+        console.log(user.info.address?.city) // undifined
+        console.log(user.info.address?.city.postcode) // undifined
 
         const products = [
             { name: 'iphone 15', price: 48900 },
@@ -43,7 +44,7 @@
                 }
             },
         ]
-        // ||回傳最先是true的值*********待補筆記
+        // || 表示回傳最先是true的值，例如：當前面的值是false就會改回傳後面設定的內容***可以參考20240315課程－短路求值***
         for (let i = 0; i < products.length; i++) {
             document.write(`
             <p>

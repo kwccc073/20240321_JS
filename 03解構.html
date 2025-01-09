@@ -13,7 +13,7 @@
         const array = [1, 2, 3, 4]
         // const one= array[0]
         // const two= array[1]
-        // ...表示剩下的分配給others，...須放在最後面
+        // ...表示剩下的值都分配給others，...須放在最後面（也可以不放）
         // 陣列解構時的one, two, ...others都可以自己命名
         let [one, two, ...others] = array
         console.log(one) //1
@@ -31,7 +31,7 @@
         // const a = obj.a
         // const bbb = obj.b
         /* 物件解構必須取跟key相同的名，或是用 : 重新命名
-        只有...可以自己命名*/
+        只有...XXX可以自己命名*/
         //下面這行是需要重新命名的情況：有一變數叫b、物件裡也有一個key叫b
         const b = 123456
         let { a, b: bbb, ...banana } = obj

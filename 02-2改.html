@@ -18,7 +18,8 @@
         obj.a = 111
         console.log(obj)
 
-        // Pass by reference 傳址
+        // Pass by reference 傳址--------
+        // 陣列會在電腦記憶體裡面劃分一道位址，當宣告b = a 的時候就表示指向記憶體裡的同一個位址，所以是同一個，修改會一起改
         // const宣告通常不能改，但若宣告的是陣列或物件則可以改裡面的值，但不能整個改掉
         //只有陣列或物件才會有下列情況：改a的時候b會一起改到
         const a = [1, 2, 3]
@@ -28,6 +29,7 @@
         console.log(b) // [100,2,3]
         console.log(a === b) //true（表示他們是同一個）
 
+        // 物件同理
         const obj1 = { a: 1, b: 2, c: 3 }
         const obj2 = obj1
         obj1.a = 100
@@ -35,7 +37,7 @@
         console.log(obj2)//{ a: 1, b: 2, c: 3 }
 
 
-        // Pass by value 傳值
+        // Pass by value 傳值-------
         let test1 = 1
         let test2 = test1
         test2 = 100
@@ -65,6 +67,7 @@
         console.log('one', one)//100
         console.log('array', array)//[1, 2, 3, 4]
 
+        // 解構：不會動到原本陣列的東西，是Pass by value 傳值
         const objj = { aaa: 1, bbb: 2, ccc: 3, ddd: 4 }
         let { aaa, bbb, ...banana } = objj
         aaa = 100
