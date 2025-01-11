@@ -13,8 +13,9 @@
         印出陣列 第 x 個數字為 y*/
         let numbers = [33, 75, 69, 41, 50, 19]
         for (const i in numbers) {
-            // 也可以改用i*1+1來取代parseInt(i + 1)，因為*1是乘以數字，使字元變數字
-            document.write(`第${parseInt(i + 1)}個數字是${numbers[i]}<br>`)
+            // for in 的索引(i)會是文字型態，所以要用parseInt()將i改為數字
+            // 或是也可以改用i*1+1來取代parseInt(i + 1)，因為*1是乘以數字，使字元變數字
+            document.write(`第${parseInt(i) + 1}個數字是${numbers[i]}<br>`)
         }
 
         // 題目：求 41 是第幾個數字
@@ -61,7 +62,7 @@
 
         // 最大數字和最小數字
         let maximum = numbers[0]
-        let minimum = numbers[0] //初始值是0會無法進行，故改成以第一個數字進行
+        let minimum = numbers[0] //初始值是0會無法進行（因為陣列裡面沒有比0還小的），故改成以第一個數字進行
         for (let i = 0; i < numbers.length; i++) {
             if (numbers[i] > maximum) {
                 maximum = numbers[i]
